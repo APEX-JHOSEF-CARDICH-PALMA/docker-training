@@ -148,7 +148,7 @@ $ docker run -t -i -p 80:3000 hi-node
 Go to:  ec2-15-188-54-185.eu-west-3.compute.amazonaws.com
 
 You should be able to see this message in the browser: 
-
+ ![docker Running](documentation/docker-running.png)
 
 
 ## Características
