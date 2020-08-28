@@ -1,0 +1,31 @@
+{
+  "name": "rest-api-docker",
+  "version": "1.0.0",
+  "description": "Simply express server to be deployed in a docker container.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon  app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhosefCardich/docker-training.git"
+  },
+  "keywords": [
+    "docker",
+    "express"
+  ],
+  "author": "Jhosef Anderson Cardich Palma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JhosefCardich/docker-training/issues"
+  },
+  "homepage": "https://github.com/JhosefCardich/docker-training#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
