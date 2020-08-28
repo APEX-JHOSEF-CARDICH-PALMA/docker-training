@@ -160,7 +160,7 @@ Se irán definiendo dentro durante el proyecto
 - Aplicacíon en Node con Express que muestra el siguiente mensaje:
 
 ````
-Hello World, this is My Express API in a Docker Container. BTW, Said is HOT !
+Hello World!! this is My Express API in a Docker Container. BTW, Said is HOT !
 
 ````
 
