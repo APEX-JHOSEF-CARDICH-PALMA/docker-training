@@ -40,9 +40,9 @@
 
  ***Organización del proyecto***
 > Despligue de un contenedor dentro de EC2 AMI 
-![Project Architecture](documentation/architecture.png)
+![Project Architecture](documentation/archi.png)
 
-
+---
 ## Instalación
 
  #### Iniciando el servidor sin docker 
@@ -77,7 +77,7 @@ We should obtain this message in the terminal:
 Servidor con express corriendo en el puerto 3000
 ````
 
-### Dev mode (Optional)
+##### Dev mode (Optional)
 If we are developing or changing the app maybe we'd need to see the changes reflected on the container, so we have to configure, trough  the 
 creation of a Volume plus the use of nodemon as 
 a dev dependency (see package.js), to reflect the changes we made.
