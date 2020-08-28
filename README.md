@@ -144,7 +144,7 @@ $ docker run -t -i -p 80:3000 hi-node
 
 > 4 - Checkout it's working 
 
-Go to:  ec2-15-188-54-185.eu-west-3.compute.amazonaws.com
+Go to:  [ec2-35-180-87-177.eu-west-3.compute.amazonaws.com](ec2-35-180-87-177.eu-west-3.compute.amazonaws.com)
 
 You should be able to see this message in the browser: 
  >![docker Running](documentation/docker-running.png)
