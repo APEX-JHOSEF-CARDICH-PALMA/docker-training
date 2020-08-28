@@ -39,22 +39,23 @@
 
 
  ***Organización del proyecto***
-- Se cuenta con una aplicación Java,una base de datos SQLite3, y algún cliente a desarrollarse. 
-> Esta es una primera version de lo que podría ser 
+- Despligue de un contenedor dentro de EC2 AMI : 
+
  ![Project  Architecture](documentation/architecture.png)
 
 
 ## Instalación
 
- #### Iniciando el servidor
+ #### Iniciando el servidor sin docker 
 
 Express corre en el puerto 3000.
 el comando que se ejecuta para para arrancar el servidor es (tambien es lo que ejecuta docker en el Dockerfile para iniciar la app):
 ```
 $ npm run start 
 ```
+---
 
- #### Configuración de Docker
+ #### Configuración de Docker en local
 -  Se han usado los siguientes comandos para crear la imagen Docker de la aplicación
 
 > 1 - Build the Image
@@ -65,6 +66,7 @@ $ docker build -t hi-node .
 > 2 - Run container 
 
 In order to the containter (with the Node express server inside) we have to map the internal (docker runs node in port 3000) port in wich our application is running  with a external port (host port 9000) in wich the app will be accesible.
+
 ````
 $ docker run -p 9000:3000 hi-node .
 ````
@@ -76,7 +78,7 @@ We should obtain this message in the terminal:
 Servidor con express corriendo en el puerto 3000
 ````
 
-## Dev mode
+### Dev mode (Optional)
 If we are developing or changing the app maybe we'd need to see the changes reflected on the container, so we have to configure, trough  the 
 creation of a Volume plus the use of nodemon as 
 a dev dependency (see package.js), to reflect the changes we made.
@@ -89,7 +91,7 @@ $ npm install --save-dev nodemon
 
 We made changes in the package.json so we have to rebuild 
 ```
-
+$ docker build -t hi-node .
 ```
 > 3 - Binding source code to the volumes
 
@@ -111,7 +113,43 @@ Servidor con express corriendo en el puerto 3000
 
 ```
 ---
- 
+### AWS Configuration
+
+#### Dependencies
+
+- First of all an AWS account is nedeed.
+- [Docker Basic installation on EC2 AMI ](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html)
+
+- [AWS Segurity Groups Tutorial on YouTube. ](https://www.youtube.com/watch?v=1fnPCWBikYQ). It's necesary for configure all the Segurity Groups.
+
+
+
+#### Deployment in EC2 AMI Instance
+
+> 1 -  Build
+
+```
+$ docker build -t  hi-node .
+```
+
+> 2 - Run
+
+```
+$ docker run -t -i -p 80:3000 hi-node
+```
+
+> 3 - Running 
+
+ ![AWS CLI](documentation/aws_cli.png)
+---
+
+> 4 - Checkout it's working 
+
+Go to:  ec2-15-188-54-185.eu-west-3.compute.amazonaws.com
+
+You should be able to see this message in the browser: 
+
+
 
 ## Características
 
@@ -119,10 +157,10 @@ Se irán definiendo dentro durante el proyecto
 
 
 #### App en el contenedor
-- Aplicacíon sencilla a implementar.
+- Aplicacíon en Node con Express que muestra el siguiente mensaje:
 
 ````
-- Funcionalidad 1
+Hello World, this is My Express API in a Docker Container. BTW, Said is HOT !
 
 ````
 
@@ -131,7 +169,11 @@ Se irán definiendo dentro durante el proyecto
 ## Dependencias
 
 Los siguientes paquetes de software son necesarios en el sistema para poder hacer funcional la aplicación:
-- [Docker](https://www.docker.com/)
+- Local:
+  - [Docker](https://www.docker.com/)
+
+- On AWS:
+  - [Git for EC2 AMI Installation](https://cloudaffaire.com/how-to-install-git-in-aws-ec2-instance/)
 
 
 
@@ -151,15 +193,11 @@ Los siguientes paquetes de software son necesarios en el sistema para poder hace
 ---
 ## Anexo
 
-Cuando se quiera implementar un proyecto en Django por primera vez seguir los siguientes pasos:
+Cosas útiles: 
+
+> 1 - Comandos de Admin de containters de Docker 
 
 
-> 1 - Step 1 
-```
-$ script..
- ```
- - Entonces podremos observar el siguiente mensaje: 
+ - [Comandos](https://blog.baudson.de/blog/stop-and-remove-all-docker-containers-and-images)
 
-```
-Nice message
-```
+
