@@ -39,9 +39,8 @@
 
 
  ***Organización del proyecto***
-- Despligue de un contenedor dentro de EC2 AMI : 
-
- ![Project  Architecture](documentation/architecture.png)
+> Despligue de un contenedor dentro de EC2 AMI 
+![Project Architecture](documentation/architecture.png)
 
 
 ## Instalación
@@ -140,7 +139,7 @@ $ docker run -t -i -p 80:3000 hi-node
 
 > 3 - Running 
 
- ![AWS CLI](documentation/aws_cli.png)
+ >![AWS CLI](documentation/aws_cli.png)
 ---
 
 > 4 - Checkout it's working 
@@ -148,9 +147,9 @@ $ docker run -t -i -p 80:3000 hi-node
 Go to:  ec2-15-188-54-185.eu-west-3.compute.amazonaws.com
 
 You should be able to see this message in the browser: 
- ![docker Running](documentation/docker-running.png)
+ >![docker Running](documentation/docker-running.png)
 
-
+---
 ## Características
 
 Se irán definiendo dentro durante el proyecto
